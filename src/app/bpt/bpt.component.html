@@ -1,0 +1,34 @@
+{{diagnostic}}
+<div class="container">
+  <h1>Brain Pundits!</h1>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit();">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" [(ngModel)]="profileForm.name" class="form-control" formControlName="name" id="name" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" [(ngModel)]="profileForm.email" formControlName="email" placeholder="Email">
+    </div>
+
+    <div class="form-group">
+      <label for="number">Phone Number</label>
+      <input type="text" class="form-control" [(ngModel)]="profileForm.phone" formControlName="phone" placeholder="Enter 10 digits">
+    </div>
+
+    <button type="submit" [disabled]="!profileForm.valid" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<p>
+  Form Status: {{ profileForm.status }}
+</p>
+
+<div *ngIf="show">
+	Name-{{ profileForm.name }} <br>
+	Email-{{ profileForm.email }} <br>
+	Phone-{{ profileForm.phone }}
+
+</div>
